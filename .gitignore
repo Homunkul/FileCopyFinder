@@ -1,0 +1,9 @@
+# Default ignored files
+/shelf/
+.idea
+
+# Project exclude paths
+/.gradle/
+/build/
+/out/
+/out/production/classes/
