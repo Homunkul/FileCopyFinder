@@ -22,7 +22,7 @@ public class Main {
 				fold.CFile(fileEntry.toString());
 				cf.add(fold);
 				st.add(fileEntry.getName());
-//				out.println(cf.get(cf.size()-1).setName());
+				out.println(cf.get(cf.size()-1).getName());
 			}else {
 				CreateList(filePatch + "\\" + fileEntry.getName());
 			}
@@ -37,7 +37,7 @@ public class Main {
 //			if (fileEntry.isFile()) {
 //				tm = fileEntry.getName();
 //				koll++;
-////				out.print(filePatch + "\\" + fileEntry.getName() + " " + cf.size() + " " + fold.setMDSum());
+////				out.print(filePatch + "\\" + fileEntry.getName() + " " + cf.size() + " " + fold.getMDSum());
 //			}else {
 //				CreateList(filePatch + "\\" + fileEntry.getName());
 //			}
@@ -47,13 +47,13 @@ public class Main {
 
 	private static  void sortData(List<CFile> list, int left, int right){
 		int leftPoint = left, rightPoint = right;
-		String poin = list.get((leftPoint + rightPoint) / 2).setMDSum();
+		String poin = list.get((leftPoint + rightPoint) / 2).getMDSum();
 
 		do {
-			while (list.get(leftPoint).setMDSum().compareTo(poin) > 0) {
+			while (list.get(leftPoint).getMDSum().compareTo(poin) > 0) {
 				leftPoint ++;
 			}
-			while (list.get(rightPoint).setMDSum().compareTo(poin) < 0) {
+			while (list.get(rightPoint).getMDSum().compareTo(poin) < 0) {
 				rightPoint ++;
 			}
 			if (leftPoint <= rightPoint) {
@@ -69,6 +69,8 @@ public class Main {
 	}
 
 	public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
+		//private static
+//		List<CFile> cf = new ArrayList<>();
 		long a1,a2;
 		String filePatch = "D:\\ProgramData";
 		a1= System.currentTimeMillis();
@@ -79,9 +81,9 @@ public class Main {
 		out.println((a2-a1)/cf.size() + ":" + (a1-a2) + ":" + cf.size());
 //		sortData(cf,0,cf.size()-1);
 		for (int i = 0; i < cf.size(); i++){
-			out.println(cf.get(i).setMDSum());
+			out.println(cf.get(cf.size()-1).getName());
 		}
-		out.println(cf.get(10).setName());
+		out.println(cf.get(10).getName());
 		out.println((a2 - a1) / kol + ":" + (a2 - a1) + ":" + kol);
 	}
 }

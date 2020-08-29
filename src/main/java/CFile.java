@@ -60,11 +60,27 @@ public class CFile {
 		MDSum =getFileChecksum(Name, md);
 	}
 
-	public String setMDSum() {
+	public void setMDSum(String MDSum) {
+		this.MDSum = MDSum;
+	}
+
+	public void setName(String Name) {
+		this.Name = Name;
+	}
+
+	public void setFWay(String FWay) {
+		this.FWay = FWay;
+	}
+
+	public String getMDSum() {
 		return MDSum;
 	}
 
-	public String setName() {
+	public String getFWay() {
+		return FWay;
+	}
+
+	public String getName() {
 		return Name;
 	}
 }
