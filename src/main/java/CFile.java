@@ -1,23 +1,18 @@
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 //import org.apache.commons.codec.binary.Hex;
 
 public class CFile {
-	public static String Name;
-	public static String MDSum;
-	public static String FWay;
+	private String Name;
+	private String MDSum;
+	private String FWay;
 
 
-
-	private static String getFileChecksum(String filepath, MessageDigest md) throws  IOException {
+	private String getFileChecksum(String filepath, MessageDigest md) throws IOException {
 		// file hashing with DigestInputStream
 //		try (DigestInputStream dis = new DigestInputStream(new FileInputStream(filepath), md)) {
 //			while (dis.read() != -1) ; //empty loop to clear the data
@@ -47,40 +42,40 @@ public class CFile {
 		return result.toString();
 	}
 
-	public void CFile(String Name) throws NoSuchAlgorithmException, IOException {
+	public CFile(String Name) throws NoSuchAlgorithmException, IOException {
 		for (int i = Name.length() - 1; i > 0; i--) {
-			if(Name.charAt(i) == '\\'){
-				this.FWay = Name.substring(0, i+1);
+			if (Name.charAt(i) == '\\') {
+				this.FWay = Name.substring(0, i + 1);
 				break;
 			}
 		}
-		this.Name=Name;
+		this.Name = Name;
 //		String fl=FWay+"\\"+Name;
 		MessageDigest md = MessageDigest.getInstance("MD5");
-		MDSum =getFileChecksum(Name, md);
+		MDSum = getFileChecksum(Name, md);
 	}
 
-	public void setMDSum(String MDSum) {
-		this.MDSum = MDSum;
+	public String getName() {
+		return Name;
 	}
 
-	public void setName(String Name) {
-		this.Name = Name;
-	}
-
-	public void setFWay(String FWay) {
-		this.FWay = FWay;
+	public void setName(String name) {
+		Name = name;
 	}
 
 	public String getMDSum() {
 		return MDSum;
 	}
 
+	public void setMDSum(String MDSum) {
+		this.MDSum = MDSum;
+	}
+
 	public String getFWay() {
 		return FWay;
 	}
 
-	public String getName() {
-		return Name;
+	public void setFWay(String FWay) {
+		this.FWay = FWay;
 	}
 }
